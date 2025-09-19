@@ -14,11 +14,11 @@ public class Journal
     {
         Random rand = new Random();
         string prompt = _prompts[rand.Next(_prompts.Count)];
-        console.WriteLine(prompt);
-        console.Write("Your response: ");
+        Console.WriteLine(prompt);
+        Console.Write("Your response: ");
         string text = Console.ReadLine();
         string date = DateTime.Now.ToString("yyyy-MM-dd");
-        AddEntry newEntry = new Entry(date, prompt, text);
+        newEntry = new Entry(date, prompt, text);
         _entries.Add(newEntry);
     }
 

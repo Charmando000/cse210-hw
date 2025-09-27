@@ -1,0 +1,15 @@
+YoutubeVideos
+
+Comment               Video
+
+-_name                -_title
+-_Text                -_author
+                      -_length
+                      -_comments
+              ---->
+.GetName()            .AddComments()
+.GetText()            .GetNumbersOfComments()
+                      .GetTitle()
+                      .GetAuthor()
+                      .GetLength()
+                      .GetComments()

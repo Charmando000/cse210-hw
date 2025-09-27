@@ -1,42 +1,37 @@
+using System.Collections.Generic;
+
 public class Order
 {
-    private List<Product> products = new List<Product>();
-    private Customer customer;
+    private List<Product> _products = new List<Product>();
+    private Customer _customer;
 
     public Order(Customer customer)
     {
-        this.customer = customer;
+        _customer = customer;
     }
 
     public void AddProduct(Product product)
     {
-        products.Add(product);
+        _products.Add(product);
     }
 
-    public double GetTotalCost()
+     public double GetTotalCost()
     {
         double total = 0;
-        foreach (Product product in products)
+        foreach (Product product in _products)
         {
             total += product.GetTotalCost();
         }
 
-        if (customer.LivesInUSA())
-        {
-            total += 5; // Shipping in USA
-        }
-        else
-        {
-            total += 35; // International shipping
-        }
-
+        // Shipping cost
+        total += _customer.LivesInUSA() ? 5 : 35;
         return total;
     }
 
     public string GetPackingLabel()
     {
         string label = "Packing Label:\n";
-        foreach (Product product in products)
+        foreach (Product product in _products)
         {
             label += $"- {product.GetPackingInfo()}\n";
         }
@@ -45,6 +40,6 @@ public class Order
 
     public string GetShippingLabel()
     {
-        return $"Shipping Label:\n{customer.GetName()}\n{customer.GetAddress().GetFullAddress()}";
+        return $"Shipping Label:\n{_customer.GetName()}\n{_customer.GetAddress().GetFullAddress()}";
     }
 }

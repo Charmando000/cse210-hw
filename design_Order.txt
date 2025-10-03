@@ -1,0 +1,13 @@
+Online Ordering
+
+product                                Order                           Customer                     Address
+
+-name                                  -products                       -name                        -street
+-productId                             -costumer                       -address                     -city
+-price                                                                                              -state
+-quantity                                                                                           -country
+                           ---->                              ---->                         ---->
+.GetTotalPrice()                       .AddProduct()                   .GetName()                   .IsInUsa()
+.GetPackInfo()                         .GetTotalCost()                 .GetAddress()                .GetFullAddress()
+.GetTotalCost()                        .GetPackingLabel()              .LivesInUsa()
+                                       .GetShippingLabel()

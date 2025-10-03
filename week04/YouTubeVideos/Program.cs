@@ -1,9 +1,46 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the YouTubeVideos Project.");
+        List<Video> videos = new List<Video>();
+
+        // Video 1
+        Video video1 = new Video("The Joy of Painting", "Bob Ross", 300);
+        video1.AddComment(new Comment("Alice", "I love this show!"));
+        video1.AddComment(new Comment("Bob", "So relaxing to watch."));
+        video1.AddComment(new Comment("Charlie", "I wish I could paint like that."));
+        videos.Add(video1);
+
+        // Video 2
+        Video video2 = new Video("Learn C# in 10 Minutes", "Code Academy", 600);
+        video2.AddComment(new Comment("Dave", "Great tutorial!"));
+        video2.AddComment(new Comment("Eve", "Very informative."));
+        video2.AddComment(new Comment("Frank", "Helped me a lot, thanks!"));
+        videos.Add(video2);
+
+        // Video 3
+        Video video3 = new Video("Top 10 Travel Destinations", "Wanderlust", 450);
+        video3.AddComment(new Comment("Grace", "I want to visit all of these places!"));
+        video3.AddComment(new Comment("Heidi", "Amazing video, very inspiring."));
+        video3.AddComment(new Comment("Ivan", "Adding these to my bucket list."));
+        videos.Add(video3);
+
+        // Display video information
+        foreach (var video in videos)
+        {
+            Console.WriteLine($"Title: {video.GetTitle()}");
+            Console.WriteLine($"Author: {video.GetAuthor()}");
+            Console.WriteLine($"Length: {video.GetLength()} seconds");
+            Console.WriteLine($"Number of Comments: {video.GetNumberOfComments()}");
+            Console.WriteLine("Comments:");
+            foreach (var comment in video.GetComments())
+            {
+                Console.WriteLine($"- {comment.GetName()}: {comment.GetText()}");
+            }
+            Console.WriteLine();
+        }
     }
 }

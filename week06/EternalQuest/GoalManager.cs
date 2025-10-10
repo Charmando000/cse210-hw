@@ -88,9 +88,9 @@ public class GoalManager
         }
 
         int choice = int.Parse(Console.ReadLine()) - 1;
-    _goals[choice].RecordEvent();
-    _score += _goals[choice].GetPoints();
-    }
+        _goals[choice].RecordEvent();
+        _score += _goals[choice].GetPoints();
+    }  
 
     private void SaveGoals()
     {
@@ -133,7 +133,7 @@ public class GoalManager
             else if (type == "ChecklistGoal")
             {
                 _goals.Add(new ChecklistGoal(data[0], data[1], int.Parse(data[2]),
-                                             int.Parse(data[3]), int.Parse(data[4]), int.Parse(data[5])));
+                int.Parse(data[3]), int.Parse(data[4]), int.Parse(data[5])));
             }
         }
 
